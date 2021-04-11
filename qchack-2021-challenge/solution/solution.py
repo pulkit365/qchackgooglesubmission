@@ -53,7 +53,7 @@ def four_qubit_ops(
                 return circ
     if np.allclose(matrix,np.identity(16),atol=0.00001):
         return [],[]
-    print(np.array_str(cirq.unitary(cirq.Circuit(toffoli(a,b,e)+toffoli(c,e,d)+toffoli(a,b,e))  )))
+    #print(np.array_str(cirq.unitary(cirq.Circuit(toffoli(a,b,e)+toffoli(c,e,d)+toffoli(a,b,e))  )))
     return (toffoli(a,b,e)+toffoli(c,e,d)+toffoli(a,b,e)),[e] 
     #return cirq.optimizers.decompose_multi_controlled_x([a,b,c],d,[e]),[e]       
 def three_qubit_ops(
@@ -183,11 +183,11 @@ def two_qubit_ops(
         list,ancilla=circs2[i]
         unit=cirq.unitary(cirq.Circuit(list))
         if first:
-            print(matrix)
+            #print(matrix)
             first=False
         if np.allclose(matrix,unit,atol=0.00001):
             return circ
-    print (np.array_str(matrix))
+    #rint (np.array_str(matrix))
     '''
     for gate in [cirq.X,cirq.Y,cirq.Z]:
         if np.allclose(matrix, (cirq.unitary(gate)),atol=0.00001) :
